@@ -23,6 +23,42 @@ Things you may want to cover:
 
 - ...
 
+# Testing best practices
+
+## RSpec
+To run RSpec tests:
+
+```bash
+# run test for a file
+bin/rspec spec/models/project_spec.rb
+
+# run test for the example on line 10 on that file
+bin/rspec spec/models/project_spec.rb:10
+
+# run tests matching the example name has that string
+bin/rspec spec/models/project_spec.rb -e some_string
+
+# run all tests, will take hours for GitLab codebase!
+bin/rspec
+```
+
+
+# Test Plan
+
+- The test cases for the _features issues_ of your application may be placed at _spec/system/ROLE_ACTION_spec.rb_
+  - such as _spec/system/user_changes_password_spec.rb_
+- Use scenario titles that describe the success and failure paths.
+- Avoid scenario titles that add no information, such as "successfully".
+- Avoid scenario titles that repeat the feature title.
+- Create only the necessary records in the database.
+- Test a happy path and a less happy path but that's it.
+- Every other possible path should be tested with Unit or Integration tests.
+- Test what's displayed on the page, not the internals of ActiveRecord models.
+- For instance, if you want to verify that a record was created, add expectations that its attributes are displayed on the page, not that `Model.count` increased by one.
+- It's ok to look for DOM elements, but don't abuse it, because it makes the tests more brittle.
+
+# Test Tooling
+
 # Capybara setup
 
 Can't run Rails system test on WSL Ubuntu 18?
