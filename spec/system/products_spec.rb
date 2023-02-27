@@ -29,4 +29,14 @@ RSpec.describe 'Products' do
       expect(page).to have_content(item.title)
     end
   end
+
+  describe 'render a new product form' do
+
+    it 'shows the form' do
+      visit products_path
+      click_link 'Add Product'
+
+      expect(page).to have_content('Nuevo Producto')
+    end
+  end
 end
