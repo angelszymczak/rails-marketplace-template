@@ -25,4 +25,12 @@ RSpec.describe 'Products' do
       expect(response).to have_http_status(:ok)
     end
   end
+
+  describe 'POST /products' do
+    it 'returns http FOUND' do
+      post '/products', params: { product: { title: 'new product', description: 'new description', price: 1280 } }
+
+      expect(response).to have_http_status(:found)
+    end
+  end
 end

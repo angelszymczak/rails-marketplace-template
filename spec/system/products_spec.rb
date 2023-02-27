@@ -39,4 +39,19 @@ RSpec.describe 'Products' do
       expect(page).to have_content('Nuevo Producto')
     end
   end
+
+  describe 'allow to create a new product' do
+    it 'creates successfully' do
+      visit new_product_path
+
+      fill_in 'product_title', with: 'some title'
+      fill_in 'product_description', with: 'some description'
+      fill_in 'product_price', with: 120
+
+      click_on 'Create Product'
+
+      expect(page).to have_content('Products')
+      expect(page).to have_content('some title')
+    end
+  end
 end
