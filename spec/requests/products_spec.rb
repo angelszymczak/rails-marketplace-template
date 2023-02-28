@@ -31,6 +31,16 @@ RSpec.describe 'Products' do
       post '/products', params: { product: { title: 'new product', description: 'new description', price: 1280 } }
 
       expect(response).to have_http_status(:found)
+
+      expect(flash[:notice]).to eq('Product created successfully')
+    end
+
+    it 'returns http UNPROCESSABLE ENTITY' do
+      post '/products', params: { product: { title: 'missing fields' } }
+
+      expect(response).to have_http_status(:unprocessable_entity)
+
+      expect(flash[:alert]).to eq('Product creation was failed')
     end
   end
 end

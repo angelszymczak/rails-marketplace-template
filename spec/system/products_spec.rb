@@ -6,9 +6,9 @@ RSpec.describe 'Products' do
       Product.create(
         [
 
-          { title: 'item1', description: 'new' },
-          { title: 'item2', description: 'old' },
-          { title: 'item3', description: 'used' },
+          { title: 'item1', description: 'new', price: 1342 },
+          { title: 'item2', description: 'old', price: 9897 },
+          { title: 'item3', description: 'used', price: 2323 },
         ]
       )
     end
@@ -22,7 +22,7 @@ RSpec.describe 'Products' do
   end
 
   describe 'visiting a detailed item page' do
-    let!(:item) { Product.create(title: 'item', description: 'special') }
+    let!(:item) { Product.create(title: 'item', description: 'special', price: 134) }
 
     it 'shows the item title' do
       visit product_path(item)
@@ -31,7 +31,6 @@ RSpec.describe 'Products' do
   end
 
   describe 'render a new product form' do
-
     it 'shows the form' do
       visit products_path
       click_link 'Add Product'
@@ -51,7 +50,21 @@ RSpec.describe 'Products' do
       click_on 'Create Product'
 
       expect(page).to have_content('Products')
+
       expect(page).to have_content('some title')
+    end
+
+    it 'does not create successfully' do
+      visit new_product_path
+
+      fill_in 'product_title', with: 'some title'
+
+      click_on 'Create Product'
+
+      expect(page).to have_content('Nuevo Producto')
+
+      expect(page).to have_content('Description can\'t be blank')
+      expect(page).to have_content('Price can\'t be blank')
     end
   end
 end
