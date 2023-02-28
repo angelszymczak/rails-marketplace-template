@@ -43,4 +43,14 @@ RSpec.describe 'Products' do
       expect(flash[:alert]).to eq('Product creation was failed')
     end
   end
+
+  describe 'GET /products/edit/:id' do
+    let!(:item) { create(:product) }
+
+    it 'returns http OK' do
+      get "/products/edit/#{item.id}"
+
+      expect(response).to have_http_status(:ok)
+    end
+  end
 end

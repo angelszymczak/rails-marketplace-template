@@ -67,4 +67,14 @@ RSpec.describe 'Products' do
       expect(page).to have_content('Price can\'t be blank')
     end
   end
+
+  describe 'render an edit product form' do
+    let!(:item) { create(:product) }
+
+    it 'shows the form' do
+      visit edit_product_path(item)
+
+      expect(page).to have_content('Editar Producto')
+    end
+  end
 end
