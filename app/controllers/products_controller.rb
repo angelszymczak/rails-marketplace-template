@@ -7,6 +7,8 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
+  # este es el metodo que resuelve el endpoint y retorna un formulario
+  # al link_to "Add Product" en formato html
   def new
     @product = Product.new
   end
