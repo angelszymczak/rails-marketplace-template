@@ -11,6 +11,14 @@ export default class extends Controller {
       this.sidebarTarget.classList.remove("translate-x-full");
       this.sidebarTarget.classList.add("translate-x-0");
     }, 50);
+
+    // esto es para redirigir despues de haber agregado el producto
+    // calculo que ya no es necesario, pero lo dejo encendido
+    this.element.addEventListener("turbo:submit-end", (event) => {
+      if (event.details.success) {
+        Turbo.visit(event.detail.fetchResponse.response.url);
+      }
+    });
   }
 
   close() {
@@ -20,6 +28,8 @@ export default class extends Controller {
     // this.element refers to html element who has modal-controller registered
     // en nuestro caso, todo lo que está dentro del turbo_frame
     setTimeout(() => {
+      // Cleaning el atributo src del turbo_frame from html
+      this.element.parentElement.removeAttribute("src");
       this.element.remove();
     }, 250);
   }
