@@ -16,7 +16,7 @@ RSpec.describe 'Products' do
     it 'shows the site title' do
       expect(Product.count).to eq(3)
       visit products_path
-      expect(page).to have_content('Products')
+      expect(page).to have_content('Listado de Productos')
       expect(page).to have_css('.product', count: 3)
     end
   end
@@ -49,12 +49,13 @@ RSpec.describe 'Products' do
 
       click_on 'Create Product'
 
-      expect(page).to have_content('Products')
+      expect(page).to have_content('Listado de Productos')
+      expect(current_path).to eq(products_path)
 
       expect(page).to have_content('some title')
     end
 
-    it 'does not create successfully' do
+    it 'does not create' do
       visit new_product_path
 
       fill_in 'product_title', with: 'some title'
@@ -75,6 +76,25 @@ RSpec.describe 'Products' do
       visit edit_product_path(item)
 
       expect(page).to have_content('Editar Producto')
+    end
+  end
+
+  describe 'allow to update a new product' do
+    let!(:item) { create(:product) }
+
+    it 'updates successfully' do
+      visit edit_product_path(item)
+
+      expect(page).to have_content('Editar Producto')
+
+      fill_in 'product_title', with: 'updated title'
+      fill_in 'product_description', with: 'updated description'
+      fill_in 'product_price', with: 500
+
+      click_on 'Update Product'
+
+      expect(page).to have_content('Listado de Productos')
+      expect(current_path).to eq(products_path)
     end
   end
 end

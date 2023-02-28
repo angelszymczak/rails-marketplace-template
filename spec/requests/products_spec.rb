@@ -2,24 +2,24 @@ require 'rails_helper'
 
 RSpec.describe 'Products' do
   describe 'GET /products' do
-    it 'returns http OK' do
+    it 'returns http 200' do
       get '/products'
       expect(response).to have_http_status(:ok)
     end
   end
 
   describe 'GET /products/:id' do
-    let(:product) { Product.create(title: 'sample', description: 'something', price: 100) }
+    let(:item) { Product.create(title: 'sample', description: 'something', price: 100) }
 
-    it 'returns http OK' do
-      get '/products', params: { id: product.id }
+    it 'returns http 200' do
+      get '/products', params: { id: item.id }
 
       expect(response).to have_http_status(:ok)
     end
   end
 
   describe 'GET /products/new' do
-    it 'returns http OK' do
+    it 'returns http 200' do
       get '/products/new'
 
       expect(response).to have_http_status(:ok)
@@ -27,7 +27,7 @@ RSpec.describe 'Products' do
   end
 
   describe 'POST /products' do
-    it 'returns http FOUND' do
+    it 'returns http 302' do
       post '/products', params: { product: { title: 'new product', description: 'new description', price: 1280 } }
 
       expect(response).to have_http_status(:found)
@@ -35,7 +35,7 @@ RSpec.describe 'Products' do
       expect(flash[:notice]).to eq('Product created successfully')
     end
 
-    it 'returns http UNPROCESSABLE ENTITY' do
+    it 'returns http 422' do
       post '/products', params: { product: { title: 'missing fields' } }
 
       expect(response).to have_http_status(:unprocessable_entity)
@@ -47,10 +47,50 @@ RSpec.describe 'Products' do
   describe 'GET /products/edit/:id' do
     let!(:item) { create(:product) }
 
-    it 'returns http OK' do
+    it 'returns http 200' do
       get "/products/edit/#{item.id}"
 
       expect(response).to have_http_status(:ok)
+    end
+  end
+
+  describe 'PATCH /products/:id' do
+    let!(:item) { create(:product) }
+
+    it 'returns http 302' do
+      patch "/products/#{item.id}", params: { product: { title: 'updated title' } }
+
+      expect(response).to have_http_status(:found)
+
+      expect(flash[:notice]).to eq('your product was updated')
+    end
+
+    it 'returns http 422' do
+      patch "/products/#{item.id}", params: { product: { title: nil } }
+
+      expect(response).to have_http_status(:unprocessable_entity)
+
+      expect(flash[:alert]).to eq('Product update was failed')
+    end
+  end
+
+  describe 'DELETE /products/:id' do
+    let!(:item) { create(:product) }
+
+    it 'returns http 303' do
+      expect { delete "/products/#{item.id}" }.to change { Product.count }.by(-1)
+
+      expect(response).to have_http_status(:see_other)
+
+      expect(flash[:notice]).to eq('your product was deleted')
+    end
+
+    it 'returns http 404' do
+      expect { delete "/products/1234" }.not_to change { Product.count }
+
+      expect(response).to have_http_status(:not_found)
+
+      expect(flash[:alert]).to eq("Couldn't find Product with 'id'=1234")
     end
   end
 end
