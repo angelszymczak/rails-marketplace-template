@@ -48,7 +48,7 @@ RSpec.describe 'Products' do
     let!(:item) { create(:product) }
 
     it 'returns http 200' do
-      get "/products/edit/#{item.id}"
+      get "/products/#{item.id}/edit"
 
       expect(response).to have_http_status(:ok)
     end
@@ -81,6 +81,8 @@ RSpec.describe 'Products' do
       expect { delete "/products/#{item.id}" }.to change { Product.count }.by(-1)
 
       expect(response).to have_http_status(:see_other)
+
+
 
       expect(flash[:notice]).to eq('your product was deleted')
     end
