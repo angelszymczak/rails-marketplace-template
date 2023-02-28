@@ -36,3 +36,6 @@
 # Testing outputs
 /spec/support/reports/*
 
+
+/app/assets/builds/*
+!/app/assets/builds/.keep
