@@ -11,6 +11,8 @@ export default class extends Controller {
 
     // this.element refers to html element who has modal-controller registered
     // en nuestro caso, todo lo que está dentro del turbo_frame
-    this.element.remove();
+    setTimeout(() => {
+      this.element.remove();
+    }, 300);
   }
 }
