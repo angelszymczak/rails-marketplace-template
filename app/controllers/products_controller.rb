@@ -34,10 +34,9 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    if @product.destroy
-      flash[:notice] = 'your product was deleted'
-      redirect_to products_path
-    end
+    @product.destroy
+    flash[:notice] = 'your product was deleted'
+    redirect_to products_path, status: :see_other
   end
 
   private
