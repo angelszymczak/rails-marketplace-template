@@ -6,6 +6,7 @@ export default class extends Controller {
   connect() {}
 
   close() {
-    this.sidebarTarget;
+    this.sidebarTarget.classList.remove("translate-x-0");
+    this.sidebarTarget.classList.add("translate-x-full");
   }
 }
