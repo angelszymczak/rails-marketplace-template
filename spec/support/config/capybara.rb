@@ -27,7 +27,7 @@ RSpec.configure do |config|
       # Match what's set for URL options in test.rb
       # so we can test mailers that contain links.
       config.server_host = 'localhost'
-      config.server_port = '3000'
+      config.server_port = ENV.fetch("CAPYBARA_SERVER_PORT") { 12000 }
     end
   end
 end
