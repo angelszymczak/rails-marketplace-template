@@ -1,0 +1,21 @@
+es:
+  common:
+    confirm: "Estás seguro?"
+  products:
+    index:
+      title: "Listado de Productos"
+    new:
+      title: "Agregar Producto"
+      button_text: "Crear"
+    create:
+      created: "Producto creado existosamente"
+      failed: "La creación del producto ha fallado"
+    edit:
+      title: "Editar Producto"
+      button_text: "Actualizar"
+    destroy:
+      title: "Eliminar Producto"
+      deleted: "El producto fué eliminado"
+    update:
+      updated: "El producto fue actualizado"
+      failed: "La actualización del producto ha fallado"

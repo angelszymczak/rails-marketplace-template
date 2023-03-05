@@ -3,4 +3,4 @@
 <% end %>
 
 <!-- Lo que traiga del enlace lo tengo que cargar en el turbo_frame modal -->
-<%= link_to 'Add Product', new_product_path, data: { turbo_frame: 'modal' } %>
+<%= link_to t("products.new.title"), new_product_path, data: { turbo_frame: 'modal' } %>

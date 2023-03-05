@@ -31,3 +31,14 @@
 
 en:
   hello: "Hello world"
+  products:
+    index:
+      title: "Product list"
+    create:
+      created: "Product created successfully"
+      failed: "Product creation was failed"
+    update:
+      failed: "Product update was failed"
+      updated: "Product was updated"
+    destroy:
+      deleted: "Product was deleted"

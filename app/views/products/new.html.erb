@@ -18,9 +18,9 @@
       <!-- close button -->
       <p data-action="click->modal#close">❌</p>
 
-      <h1>Nuevo Producto</h1>
+      <h1><%= t(".title") %></h1>
 
-      <%= render partial: 'form', locals: { product: @product, button_text: 'Create Producto' } %>
+      <%= render partial: 'form', locals: { product: @product, button_text: t(".button_text") } %>
     </div>
   </div>
 <% end %>
