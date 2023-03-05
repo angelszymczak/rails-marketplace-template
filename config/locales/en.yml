@@ -1,34 +1,3 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
   activerecord:
     models:
@@ -39,6 +8,8 @@ en:
         description: "Description"
         price: "Price"
         photo: "Photo"
+      category:
+        name: "Name"
     errors:
       models:
         product:
@@ -50,22 +21,41 @@ en:
             price:
               blank: "Can't be blank"
   common:
+    new: "New"
+    create: "Create"
+    edit: "Edit"
+    update: "Update"
     confirm: "Are you sure?"
+    back: "Back"
+    form:
+      forbidden_tittle: "errors prohibited this record from being saved"
+    destroy: "Destroy"
   products:
     index:
       title: "Product list"
     new:
       title: "Add Product"
-      button_text: "Create"
     create:
       created: "Product created successfully"
       failed: "Product creation was failed"
     edit:
       title: "Edit Product"
-      button_text: "Update"
     update:
       failed: "Product update was failed"
       updated: "Product was updated"
     destroy:
       title: "Delete Product"
       deleted: "Product was deleted"
+  categories:
+    index:
+      title: "Categories"
+    create:
+      created: "Category was successfully created."
+    edit:
+      title: "Editing category"
+    update:
+      updated: "Category was successfully updated."
+    destroy:
+      destroyed: "Category was successfully destroyed."
+    new:
+      title: "Categories"

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'products#index'
-
+  resources :categories, except: %I[show]
   resources :products
+
+  root 'products#index'
 end

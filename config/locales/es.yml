@@ -8,6 +8,8 @@ es:
         description: "Descripción"
         price: "Precio"
         photo: "Foto"
+      category:
+        name: "Nombre"
     errors:
       models:
         product:
@@ -19,22 +21,41 @@ es:
             price:
               blank: "No puede estar vacío"
   common:
-    confirm: "Estás seguro?"
+    new: "Agregar"
+    create: "Crear"
+    edit: "Editar"
+    update: "Actualizer"
+    confirm: "Estas seguro?"
+    back: "Volver"
+    form:
+      forbidden_tittle: "errores prohibieron que se guarde esta registro"
+    destroy: "Destruir"
   products:
     index:
       title: "Listado de Productos"
     new:
       title: "Agregar Producto"
-      button_text: "Crear"
     create:
       created: "Producto creado existosamente"
       failed: "La creación del producto ha fallado"
     edit:
       title: "Editar Producto"
-      button_text: "Actualizar"
     destroy:
       title: "Eliminar Producto"
       deleted: "El producto fué eliminado"
     update:
       updated: "El producto fue actualizado"
       failed: "La actualización del producto ha fallado"
+  categories:
+    index:
+      title: "Categorias"
+    create:
+      created: "La categoría fue creada exitosamente."
+    edit:
+      title: "Editar categorias"
+    update:
+      updated: "La categoría fue actualizada exitósamente."
+    destroy:
+      destroyed: "La categoría se destruyó con éxito."
+    new:
+      title: "Categorias"
