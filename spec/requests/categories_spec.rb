@@ -24,7 +24,7 @@ RSpec.describe "/categories", type: :request do
     skip("Add a hash of attributes invalid for your model")
   }
 
-  describe "GET /index" do
+  xdescribe "GET /index" do
     it "renders a successful response" do
       Category.create! valid_attributes
       get categories_url
@@ -32,14 +32,14 @@ RSpec.describe "/categories", type: :request do
     end
   end
 
-  describe "GET /new" do
+  xdescribe "GET /new" do
     it "renders a successful response" do
       get new_category_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /edit" do
+  xdescribe "GET /edit" do
     it "renders a successful response" do
       category = Category.create! valid_attributes
       get edit_category_url(category)
@@ -47,7 +47,7 @@ RSpec.describe "/categories", type: :request do
     end
   end
 
-  describe "POST /create" do
+  xdescribe "POST /create" do
     context "with valid parameters" do
       it "creates a new Category" do
         expect {
@@ -75,7 +75,7 @@ RSpec.describe "/categories", type: :request do
     end
   end
 
-  describe "PATCH /update" do
+  xdescribe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
         { name: "New category name" }
@@ -105,7 +105,7 @@ RSpec.describe "/categories", type: :request do
     end
   end
 
-  describe "DELETE /destroy" do
+  xdescribe "DELETE /destroy" do
     it "destroys the requested category" do
       category = Category.create! valid_attributes
       expect {

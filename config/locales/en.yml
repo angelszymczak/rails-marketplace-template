@@ -1,4 +1,6 @@
 en:
+  application:
+    name: "Marketplace"
   activerecord:
     models:
       product: "Product"
@@ -32,30 +34,32 @@ en:
     destroy: "Destroy"
   products:
     index:
-      title: "Product list"
+      title: "Products List"
     new:
       title: "Add Product"
     create:
-      created: "Product created successfully"
+      success: "Product created successfully"
       failed: "Product creation was failed"
     edit:
       title: "Edit Product"
     update:
+      success: "Product was updated"
       failed: "Product update was failed"
-      updated: "Product was updated"
     destroy:
       title: "Delete Product"
-      deleted: "Product was deleted"
+      success: "Product was deleted"
+    show:
+      title: "Product Details"
   categories:
     index:
       title: "Categories"
     create:
-      created: "Category was successfully created."
+      success: "Category was successfully created."
     edit:
       title: "Editing category"
     update:
-      updated: "Category was successfully updated."
+      success: "Category was successfully updated."
     destroy:
-      destroyed: "Category was successfully destroyed."
+      success: "Category was successfully destroyed."
     new:
       title: "Categories"

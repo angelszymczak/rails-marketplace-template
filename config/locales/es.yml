@@ -1,4 +1,6 @@
 es:
+  application:
+    name: "Mercado"
   activerecord:
     models:
       product: "Producto"
@@ -24,38 +26,40 @@ es:
     new: "Agregar"
     create: "Crear"
     edit: "Editar"
-    update: "Actualizer"
+    update: "Actualizar"
     confirm: "Estas seguro?"
+    destroy: "Destruir"
     back: "Volver"
     form:
       forbidden_tittle: "errores prohibieron que se guarde esta registro"
-    destroy: "Destruir"
   products:
     index:
       title: "Listado de Productos"
     new:
       title: "Agregar Producto"
     create:
-      created: "Producto creado existosamente"
+      success: "Producto creado existosamente"
       failed: "La creación del producto ha fallado"
     edit:
       title: "Editar Producto"
     destroy:
       title: "Eliminar Producto"
-      deleted: "El producto fué eliminado"
+      success: "El producto fué eliminado"
     update:
-      updated: "El producto fue actualizado"
+      success: "El producto fue actualizado"
       failed: "La actualización del producto ha fallado"
+    show:
+      title: "Detalles del Producto"
   categories:
     index:
       title: "Categorias"
     create:
-      created: "La categoría fue creada exitosamente."
+      success: "La categoría fue creada exitosamente."
     edit:
       title: "Editar categorias"
     update:
-      updated: "La categoría fue actualizada exitósamente."
+      success: "La categoría fue actualizada exitósamente."
     destroy:
-      destroyed: "La categoría se destruyó con éxito."
+      success: "La categoría se destruyó con éxito."
     new:
       title: "Categorias"
