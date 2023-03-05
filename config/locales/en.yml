@@ -30,15 +30,42 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      product: "Product"
+    attributes:
+      product:
+        title: "Title"
+        description: "Description"
+        price: "Price"
+        photo: "Photo"
+    errors:
+      models:
+        product:
+          attributes:
+            title:
+              blank: "Can't be blank"
+            description:
+              blank: "Can't be blank"
+            price:
+              blank: "Can't be blank"
+  common:
+    confirm: "Are you sure?"
   products:
     index:
       title: "Product list"
+    new:
+      title: "Add Product"
+      button_text: "Create"
     create:
       created: "Product created successfully"
       failed: "Product creation was failed"
+    edit:
+      title: "Edit Product"
+      button_text: "Update"
     update:
       failed: "Product update was failed"
       updated: "Product was updated"
     destroy:
+      title: "Delete Product"
       deleted: "Product was deleted"
