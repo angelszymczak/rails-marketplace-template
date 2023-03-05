@@ -23,11 +23,12 @@ RSpec.configure do |config|
 
     driven_by(ENV['RUNNER'] == 'CI' ? :headless_chrome : :chrome)
 
-    Capybara.configure do |config|
-      # Match what's set for URL options in test.rb
-      # so we can test mailers that contain links.
-      config.server_host = 'localhost'
-      config.server_port = ENV.fetch("CAPYBARA_SERVER_PORT") { 12000 }
-    end
+    # Capybara.configure do |config|
+    #   # Match what's set for URL options in test.rb
+    #   # so we can test mailers that contain links.
+    #   config.server_host = 'localhost'
+    #   config.server_port = E
+    #   ENV.fetch("CAPYBARA_SERVER_PORT") { 10_000 }
+    # end
   end
 end
