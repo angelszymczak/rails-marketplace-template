@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = Product.all
+    @products = Product.all.with_attached_photo
   end
 
   # este es el metodo que resuelve el endpoint y retorna un formulario
