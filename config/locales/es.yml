@@ -4,6 +4,7 @@ es:
   activerecord:
     models:
       product: "Producto"
+      category: "Categoria"
     attributes:
       product:
         title: "Título"
@@ -62,4 +63,4 @@ es:
     destroy:
       success: "La categoría se destruyó con éxito."
     new:
-      title: "Categorias"
+      title: "Agregar Categoría"

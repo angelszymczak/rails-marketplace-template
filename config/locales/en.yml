@@ -4,6 +4,7 @@ en:
   activerecord:
     models:
       product: "Product"
+      category: "Category"
     attributes:
       product:
         title: "Title"
