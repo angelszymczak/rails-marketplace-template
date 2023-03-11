@@ -1,0 +1,30 @@
+<div class="sitter-search-form_bottom-container">
+  <div class="sitter-search-form_address-input-box<%= size_variant %>">
+    <p class="sitter-search-form_address-label_description<%= size_variant %>">
+      <%= label %>
+    </p>
+
+    <div class="sitter-search-form_bottom">
+      <div class="sitter-search-form_address-container">
+        <div class="sitter-search-form_address-label-icon">
+          <%= image_tag label_icon_url %>
+        </div>
+
+        <div class="sitter-search-form_address-input-container">
+          <div class="sitter-search-form_address-label-description">
+            <%= placeholder %>
+          </div>
+
+          <div class="sitter-search-form_address-input">
+            <%= "Av. Cordoba 6561" %>
+          </div>
+        </div>
+
+        <div class="sitter-search-form_address-label-icon">
+        </div>
+      </div>
+
+      <%= render Atoms::Buttons::SubmitComponent.new(size: :lg, text: "Buscar Cuidador") %>
+    </div>
+  </div>
+</div>

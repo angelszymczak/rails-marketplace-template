@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "main", "inter-font", "data-turbo-track": "reload" %>
+  </head>
+
+  <body>
+    <div class="max-w-7xl p-10 mx-auto">
+      <%= yield %>
+    </div>
+  </body>
+</html>

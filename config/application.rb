@@ -37,5 +37,9 @@ module RailsMarketplaceTemplate
     # Available languages
     config.i18n.available_locales = %I[en es]
     config.i18n.default_locale = :es
+
+    # View Component Previews
+    config.view_component.default_preview_layout = "component_preview"
+    config.view_component.preview_paths << "#{Rails.root}/app/components/previews"
   end
 end

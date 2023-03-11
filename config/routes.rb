@@ -3,4 +3,8 @@ Rails.application.routes.draw do
   resources :products
 
   root 'products#index'
+
+  if Rails.env.development?
+    mount Lookbook::Engine, at: "/lookbook"
+  end
 end
