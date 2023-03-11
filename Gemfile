@@ -83,3 +83,5 @@ end
 
 
 
+
+gem "sass-rails", "~> 6.0"
