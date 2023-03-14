@@ -1,9 +1,5 @@
 //$main-color: yellowgreen;
 //
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: grey;
-}
 //
 //.sitter-search-form-container {
 //    width: 100%;
@@ -459,21 +455,27 @@ body {
 //    }
 //}
 
-
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: grey;
+}
 
 /* Nuevos Botones */
+
 .service_type-form {
-    background-color: yellow;
+    background-color: #695997;
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 0.5rem;
     width: 80%;
     flex-wrap: wrap;
-    padding: 0;
+    padding: 1.5rem 0.75rem;
+    margin: 0 auto;
+    border-radius: 16px;
 
     label {
-        flex-basis: 20%;
+        flex-basis: 16%;
         flex-grow: 1;
         height: 2.75rem;
 
@@ -482,9 +484,12 @@ body {
         gap: 0.5rem;
         align-self: stretch;
 
-        justify-content: space-around;
+        border: 3px solid transparent;
+        outline: 1px solid #E2E7EA;
 
-        background-color: #22bc66;
+        border-radius: 20px;
+
+        padding: 0.5rem 1rem;
 
         img {
             width: 1.5rem;
@@ -492,12 +497,11 @@ body {
         }
 
         span {
-            background-color: #ff6136;
+            color: #E2E7EA;
         }
 
         .radio_label--lg {
             display: none;
-            background-color: white;
 
             @media (min-width: 800px) {
                 display: block;
@@ -520,17 +524,69 @@ body {
 
 .service_type-info {
     display: none;
+    color: #fff;
+    padding: 0 0.5rem;
 }
 
-#sitter_home:checked ~ .service_type-info.sitter_home-info {
-    display: block;
+#sitter_home:checked {
+    ~ .service_type-info.sitter_home-info {
+        display: block;
+    }
+
+    + label {
+        background-color: #fff;
+        border: 3px solid #CAC6E1;
+        outline: none;
+
+        span {
+            color: #221A3E;
+        }
+    }
 }
-#sitter_pets_kinder:checked ~ .service_type-info.sitter_pets_kinder-info {
-    display: block;
+#sitter_pets_kinder:checked {
+    ~ .service_type-info.sitter_pets_kinder-info {
+        display: block;
+    }
+
+    + label {
+        background-color: #fff;
+        border: 3px solid #CAC6E1;
+        outline: none;
+
+        span {
+            color: #221A3E;
+        }
+    }
 }
-#service3:checked ~ .service_type-info.service3-info {
-    display: block;
+
+#service3:checked {
+    ~ .service_type-info.service3-info {
+        display: block;
+    }
+
+    + label {
+        background-color: #fff;
+        border: 3px solid #CAC6E1;
+        outline: none;
+
+        span {
+            color: #221A3E;
+        }
+    }
 }
-#service4:checked ~ .service_type-info.service4-info {
-    display: block;
+
+#service4:checked {
+    ~ .service_type-info.service4-info {
+        display: block;
+    }
+
+    + label {
+        background-color: #fff;
+        border: 3px solid #CAC6E1;
+        outline: none;
+
+        span {
+            color: #221A3E;
+        }
+    }
 }
