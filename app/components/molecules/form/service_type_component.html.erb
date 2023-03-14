@@ -1,0 +1,40 @@
+<form class="service_type-form">
+  <% service_types = [
+    Atoms::RadioInput::ServiceTypeComponent.new(
+      label_icon_url: "sitter_home.svg",
+      id: "sitter_home",
+      label_title: "OO1",
+      label_title_short: "O1",
+      description: "Un cuidador@ hospeda a tus 🐶🐱 en su hogar por el tiempo que necesites."
+    ),
+    Atoms::RadioInput::ServiceTypeComponent.new(
+      label_icon_url: "sitter_pets_kinder.svg",
+      id: "sitter_pets_kinder",
+      label_title: "Guardería Diaria",
+      label_title_short: "Guardería",
+      description: "Cuidamos a tus 🐶🐱 por horas, todos los días al mes que necesites según tu rutina."
+    ),
+    Atoms::RadioInput::ServiceTypeComponent.new(
+      label_icon_url: "sitter_home.svg",
+      id: "service3",
+      label_title: "Opción 3",
+      label_title_short: "Op3",
+      description: "Información adicional para la opción 3"
+    ),
+    Atoms::RadioInput::ServiceTypeComponent.new(
+      label_icon_url: "sitter_pets_kinder.svg",
+      id: "service4",
+      label_title: "Opción 44",
+      label_title_short: "Op44",
+      description: "Información adicional para la opción 44"
+    ),
+  ] %>
+
+  <% service_types.each do |service_type| %>
+    <%= render service_type %>
+  <% end %>
+
+  <% service_types.each do |service_type| %>
+    <p class="service_type-info <%= service_type.id %>-info"><%= service_type.description %></p>
+  <% end %>
+</form>
