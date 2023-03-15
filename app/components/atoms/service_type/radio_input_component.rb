@@ -1,29 +1,30 @@
 # frozen_string_literal: true
 
 module Atoms
-  module RadioInput
-    class ServiceTypeComponent < ViewComponent::Base
-      attr_reader :id, :label_title, :label_title_short, :description, :label_icon_url, :checked
+  module ServiceType
+    class RadioInputComponent < ViewComponent::Base
+      attr_reader :id, :value, :label_icon_url, :label_title, :input_icon_url, :description, :checked
       def initialize(
         id:,
-        label_title:,
-        label_title_short:,
-        description:,
+        value:,
         label_icon_url:,
+        label_title:,
+        description:,
         checked: false
       )
         @id = id
-        @label_title = label_title
-        @label_title_short = label_title_short
-        @description = description
+        @value = value
         @label_icon_url = label_icon_url
+        @label_title = label_title
+        @input_icon_url = input_icon_url
+        @description = description
         @checked = checked
       end
 
       private
 
       def input_name_key
-        :service_type
+        :service
       end
     end
   end

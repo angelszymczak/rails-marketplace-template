@@ -1,0 +1,120 @@
+<header class="header">
+  <div class="header-logo">
+    <a href="/">
+      <%= image_tag "components/navbar/logo.svg", alt: "TMA Logo" %>
+    </a>
+  </div>
+
+  <nav class="header-menu" data-controller="menu">
+    <div class="header-menu__toggle--open" id="open-menu">
+      <%= image_tag "icons/menu.svg", alt: "Menu icon", class: "icon" %>
+    </div>
+    <div class="header-menu__toggle--close" id="close-menu">
+      Cerrar
+    </div>
+
+    <ul class="header-menu__nav" id="header-menu__nav">
+      <li><a href="/users/sign_up">Ser Cuidador/a</a></li>
+      <li><a href="/sitters/sign_up">Registrarse</a></li>
+      <li><a href="/users/sign_in">Iniciar Sesión</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="main">
+  <div class="main-container">
+    <h1>¿Te preocupa el bienestar de tu mascota?</h1>
+    <p>¡No te preocupes! ¡Nosotros nos ocupamos de cuidarlo cuando vos no estás.</p>
+  </div>
+</main>
+
+<div class="main-content">
+  <% if logged %>
+    <form class="services_section">
+      <h3><%= title %></h3>
+
+      <div class="inputs_container">
+        <div class="inputs_container-content">
+          <% service_types = [
+            Atoms::ServiceType::RadioInputComponent.new(
+              id:             "sitter-home-service",
+              value:          "sitter_home",
+              label_icon_url: "service_types/sitter_home.svg",
+              label_title:    "Hospedaje",
+              description:    "Un cuidador@ hospeda a tus mascotas en su hogar por el tiempo que necesites.",
+              checked:        true
+            ),
+            Atoms::ServiceType::RadioInputComponent.new(
+              id:             "kinder-service",
+              value:          "sitter_pets_kinder",
+              label_icon_url: "service_types/kinder.svg",
+              label_title:    "Guardería Diaria",
+              description:    "Cuidamos a tus mascotas por horas, todos los días al mes que necesites según tu rutina."
+            ),
+            Atoms::ServiceType::RadioInputComponent.new(
+              id:             "grooming-service",
+              value:          "grooming",
+              label_icon_url: "service_types/grooming.svg",
+              label_title:    "Baño / Peluquería",
+              description:    "Bañamos y cortamos el pelo a tu mascota en la comodidad de tu casa, reduciendo su estrés al no dejar su hogar"
+            ),
+            Atoms::ServiceType::RadioInputComponent.new(
+              id:             "user-home-service",
+              value:          "user_home",
+              label_icon_url: "service_types/user_home.svg",
+              label_title:    "Visitas en Casa",
+              description:    "Visitamos a tu mascota en su hogar, para atender sus necesidades"
+            ),
+          ].each do |service_type| %>
+            <%= render service_type %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="bottom">
+        <p>
+          <% service_types.each do |service_type| %>
+        <span
+          id="<%= service_type.id %>__description"
+          class="bottom__description"
+        ><%= service_type.description %></span>
+          <% end %>
+        </p>
+        <button>Conocer más</button>
+      </div>
+    </form>
+  <% else %>
+    <div class="services_section services_section--nav_links">
+      <h3><%= title %></h3>
+
+      <div class="inputs_container">
+        <div class="inputs_container-content">
+          <%[
+            Atoms::ServiceType::AnchorComponent.new(
+              href:          "/services/sitter_home",
+              label_icon_url: "service_types/sitter_home.svg",
+              label_title:    "Hospedaje",
+            ),
+            Atoms::ServiceType::AnchorComponent.new(
+              href:          "/services/kinder",
+              label_icon_url: "service_types/kinder.svg",
+              label_title:    "Guardería Diaria",
+            ),
+            Atoms::ServiceType::AnchorComponent.new(
+              href:          "/services/grooming",
+              label_icon_url: "service_types/grooming.svg",
+              label_title:    "Baño / Peluquería",
+            ),
+            Atoms::ServiceType::AnchorComponent.new(
+              href:          "/services/user_home",
+              label_icon_url: "service_types/user_home.svg",
+              label_title:    "Visitas en Casa",
+            ),
+          ].each do |service_type| %>
+            <%= render service_type %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

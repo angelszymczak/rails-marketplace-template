@@ -1,0 +1,19 @@
+<input
+  type="radio"
+  name="<%= input_name_key %>"
+  value="<%= value %>"
+  id="<%= id %>"
+  <%= "checked" if checked %>
+  class="service_type-input_radio--option"
+>
+
+<label for="<%= id %>" class="service__label" id="<%= id %>__label">
+  <%= image_tag "icons/#{label_icon_url}", class: "flex-icon" %>
+  <span class="input_title"><%= label_title %></span>
+
+  <div class="input_radio">
+    <div class="input_radio-outer_circle">
+      <div class="input_radio-inner_circle"></div>
+    </div>
+  </div>
+</label>
