@@ -48,7 +48,7 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-gem "view_component", "~> 2.82"
+gem "view_component", "~> 3.9", ">= 3.9.0"
 
 group :development, :test do
   gem "pry"
@@ -78,7 +78,7 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 
-  gem "lookbook", "~> 1.5"
+  gem "lookbook", "~> 1.5", ">= 1.5.4"
 end
 
 
